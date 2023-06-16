@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;0,900;1,900&family=Libre+Baskerville:wght@700&family=Noto+Sans+Chorasmian&family=Poppins:wght@400;500;600&family=Righteous&family=Roboto:wght@900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:  black;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+.card-item {
+    margin: auto;
+    margin-top: 5rem;
+    width: 450px;
+    height: 500px;
+    cursor: pointer;
+    padding: 20px;
+    transition: 300ms ease;
+
+    &:hover{
+        box-shadow: 0px 0px .5px .5px rgba(0, 0, 0, 0.5);
+        transition: 300ms ease;
+    }
+}
+
+.card-item > .item-image {
+    text-align: center;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-image > img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.item-info {
+    margin-top: 2rem;
+    width: 100%;
+    height: 117px;
+    text-align: start;
+}
+
+.item-info > h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.item-info > h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: gray;
+}
+
+.item-info > h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: gray;
+}
+
+.item-info > span {
+    font-family: 'Roboto', sans-serif;
+}

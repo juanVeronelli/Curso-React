@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;0,900;1,900&family=Libre+Baskerville:wght@700&family=Noto+Sans+Chorasmian&family=Poppins:wght@400;500;600&family=Righteous&family=Roboto:wght@900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+.items__main {
+    width: 90%;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.items__main > hr {
+   border-top: 0.05px solid rgba(128, 128, 128, 0.5);
+}
+
+.items__main > .main__title  {
+    padding: 0px 0px 40px 0px;
+    .items__title{
+        font-size: 35px;
+        text-transform: capitalize;
+        font-family: 'Libre Baskerville', serif
+    }
+    .items__count{
+        color: gray;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        margin-left: .5rem;
+    }
+}
+
+.btn-filter{
+    padding: 40px 0px 40px 0px;
+    font-size: 22px;
+    transition: all 1000ms ease;
+
+    &:hover{
+        color: rgba(128, 128, 128, 1);
+        transition: all 1000ms ease;
+    }
+}
+
+.btn-filter > span{
+    margin-left: 3px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+
+}

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;0,900;1,900&family=Noto+Sans+Chorasmian&family=Poppins:wght@400;500;600&family=Righteous&family=Roboto:wght@900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+.container__home{
+    width: 100%;
+    height: 87.2vh;
+    background-image: url("../../assets/image01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container__home > .home__main > h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 140px;
+    text-transform: uppercase;
+    line-height: 115px;
+    float: right;
+    margin-right: 10rem;
+    margin-top: 4.5rem;
+    color: #3c2401;
+}
+
+.home-box {
+    width: 400px;
+    height: auto;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    position: absolute;
+    top: 45rem;
+    left: 61%;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: black;
+    font-weight: 900;
+  }
+  
+  .home-box:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+  }
+  
+  .home-box:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+  }
+
+  .home-box:hover:before {
+    border-color: #3c2401;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .home-box:hover:after {
+    border-color: #3c2401;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  
+  button {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+  }
