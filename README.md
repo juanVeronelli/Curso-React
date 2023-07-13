@@ -17,7 +17,7 @@ const serviceAccount = require('./e-commerce-34350-firebase-adminsdk-et9ok-09a7a
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://e-commerce-34350.firestore.com' // url proyecto de firebase 
+  databaseURL: 'https://e-commerce-34350.firestore.com' 
 });
 
 const firestore = admin.firestore();
@@ -30,18 +30,18 @@ collectionRef
     const updates = [];
     
     snapshot.forEach((doc) => {
-      // Genera los números aleatorios entre 0 y 10
+      // Genero los números aleatorios entre 0 y 10
       const s = Math.floor(Math.random() * 11);
       const m = Math.floor(Math.random() * 11);
       const l = Math.floor(Math.random() * 11);
       const xl = Math.floor(Math.random() * 11);
       const xxl = Math.floor(Math.random() * 11);
 
-      // Actualiza el documento con el campo adicional de tipo mapa
+      // Actualizo el documento con el campo adicional de tipo mapa
       updates.push(doc.ref.update({ tallas: { S: s, M: m, L: l, XL: xl, XXL: xxl } }));
     });
 
-    // Ejecuta todas las actualizaciones en paralelo
+    // Ejecuto todas las actualizaciones en paralelo
     return Promise.all(updates);
   })
   .then(() => {
