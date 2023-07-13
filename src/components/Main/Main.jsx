@@ -4,6 +4,7 @@ import React from "react";
 import NavBar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import MainItems from "../MainItems/MainItems";
+import Footer from "../Footer/Footer";
 
 // componente que alamcena todos los demas componentes de la pagina principal
 const Main = () => {
@@ -12,6 +13,7 @@ const Main = () => {
       <NavBar />
       <Home />
       <MainItems />
+      <Footer />
     </div>
   );
 };
