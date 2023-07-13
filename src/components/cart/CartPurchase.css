@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,700;0,900;1,900&family=Libre+Baskerville:wght@700&family=Noto+Sans+Chorasmian&family=Poppins:wght@400;500;600&family=Righteous&family=Roboto:wght@900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+.cart-container{
+    margin-top: 4em;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.4fr 0.3fr;
+}
+
+.cart-container > .cart-items > h3{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.cart-container > .cart-items > .cart-cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.2fr;
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container {
+    margin-top: 1em;
+    display: grid;
+    padding: .5em;
+    grid-template-columns: 0.5fr 1fr 0.1fr;
+    
+}
+.cart-container > .cart-items > .cart-cards > .card-container > .card-image {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container > .card-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container > .card-info > h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container > .card-info > p{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color: rgb(123, 123, 123);
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container > .card-info > h5 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 3.8em;
+    font-size: 18px;
+}
+
+.cart-container > .cart-items > .cart-cards > .card-container > .close-icon {
+    justify-self: flex-end;
+    cursor: pointer;
+}
+
+.cart-container > .cart-box {
+    justify-self: center;
+    width: 65%;
+
+}
+
+.cart-container > .cart-box > .cart-resume{
+    background-color: rgb(234, 234, 234);
+    height: 220px;
+    text-align: center;
+    padding: 0.01em;
+}
+.cart-container > .cart-box  > .cart-resume > h3{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin-top: 1.5em;
+}
+
+.cart-container > .cart-box > .cart-resume > table {
+    margin: auto;
+    margin-top: 2em;
+    width: 100%;
+}
+
+.cart-container > .cart-box > .cart-resume > table > tbody > tr {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+}
+
+.cart-container > .cart-box  > .cart-resume > table > tbody > tr > td {
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+
+.cart-container > .cart-box > .cart-form {
+    background-color: rgb(234, 234, 234);
+    margin-top: 3em;
+    height: 330px;
+    text-align: center;
+    padding: 0.01em;
+}
+
+.cart-container > .cart-box > .cart-form > h3 {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin-top: 1.5em;
+}
+
+.cart-container > .cart-box  >.cart-form > form {
+    width: 100%;
+    height: 100%;
+}
+
+.cart-container > .cart-box  >.cart-form > form > input {
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 30px;
+    margin-top: .9em;
+    padding: .5em;
+}
+
+.cart-container > .cart-box  >.cart-form > form > button {
+    background-color: rgb(31, 31, 31);
+    width: 70%;
+    margin: auto;
+    margin-top: 2em;
+    height: 50px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    &:hover{
+        background-color: rgb(64, 64, 64);
+    }
+}
+
+.cart-container > .cart-box > .cart-form > form > button > span {
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}

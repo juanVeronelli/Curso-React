@@ -1,47 +1,74 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams, useLocation } from "react-router-dom";
+
+//firebase
+import { db } from "../../firebase/firebaseConfig.js";
+import { collection, query, getDocs } from "firebase/firestore";
 
 // Styles
 import "./ItemsListContainer.css";
-
-//icons
-import TuneIcon from "@mui/icons-material/Tune";
 
 // Pages
 import NavBar from "../Navbar/Navbar";
 
 //Components
 import CardItem from "../CardItem/CardItem";
-
-const endpoints = {
-  jewlery: () => {
-    return "https://fakestoreapi.com/products/category/jewelery";
-  },
-  men: () => {
-    return "https://fakestoreapi.com/products/category/men's clothing";
-  },
-  women: () => {
-    return "https://fakestoreapi.com/products/category/women's clothing";
-  },
-};
+import ItemsListMain from "./Helpers/ItemsListMain.jsx";
 
 const ItemListContainer = () => {
-  let { category } = useParams();
-  const [products, setProducts] = useState([]);
-  const [loader, setLoader] = useState(true);
+  let { category } = useParams(); // traigo la categoria del producto 
+  const [products, setProducts] = useState([]); // estado que alamcena los productos 
+  const [loader, setLoader] = useState(true); // estado que alamcena la carga
+  const [filter, setFilter] = useState(null); // estado para guardar los filtros del usuario
+  const location = useLocation();
 
-  if (!endpoints.hasOwnProperty(category)) {
-    return console.log("No existe la categoria");
-  }
+  //logica para llamar los prodcutos
+  const getProducts = async () => {
+    const q = query(collection(db, "PRODUCTS"));
+    const querySnapshot = await getDocs(q);
+    const data = querySnapshot.docs.map((product) => {
+      const { category, gender, image, name, price, id } =
+        product._document.data.value.mapValue.fields;
+      return {
+        category: category,
+        gender: gender,
+        id: id,
+        image: image,
+        name: name,
+        price: price,
+      };
+    });
+    const filteredData = data.filter(
+      (item) => item.gender.stringValue === category
+    );
+    setProducts(filteredData);
+  };
+
+  //logica que llama a los productos filtrados
+  const getCategoryProducts = async (filter) => {
+    const q = query(collection(db, "PRODUCTS"));
+    const querySnapshot = await getDocs(q);
+    const data = querySnapshot.docs.map((product) => {
+      const { category, gender, image, name, price, id } = product._document.data.value.mapValue.fields;
+      return { category: category, gender: gender, id: id, image: image, name: name, price: price,}});
+
+    const filteredData = data.filter(
+      (item) => item.gender.stringValue === category && item.category.stringValue === filter
+    );
+    setProducts(filteredData);
+  };
 
   useEffect(() => {
     setLoader(true);
-    axios
-      .get(endpoints[category]())
-      .then((data) => setProducts(data.data))
-      .finally(() => setLoader(false));
-  }, [category]);
+    if (!location.search) {
+      getProducts().finally(() => setLoader(false));
+    } else {
+        const searchParams = new URLSearchParams(location.search);
+        const filter = searchParams.get("filter");
+        setFilter(filter);
+        getCategoryProducts(filter).finally(() => setLoader(false));
+    }
+  }, [category, location.search]);
 
   if (loader) {
     return (
@@ -56,42 +83,40 @@ const ItemListContainer = () => {
     );
   }
 
+  if (products.length <= 0) {
+    return (
+      <>
+        <NavBar />
+        <div className="items__main">
+          <ItemsListMain category={category} products={products} />
+          <div className="cards">
+            <h1 className="error-message">
+              No products were found with the {filter} filter
+            </h1>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <NavBar />
       <div className="items__main">
-        <div className="main__title">
-          <h3 className="items__title"> {products[0].category} collection </h3>
-          <span className="items__count"> {products.length} products </span>
-        </div>
-        <hr />
-        <button className="btn-filter">
-          <TuneIcon
-            style={{
-              position: "relative",
-              top: "4px",
-            }}
-          />
-          <span> Filter </span>
-        </button>
-        <hr />
-        <div className="items__list">
-          <div className="cards">
-            {products.map((item) => {
-              return (
-                <Link to={`/items/detail/${item.id}`}>
-                  <CardItem
-                    key={item.id}
-                    title={item.title}
-                    price={item.price}
-                    category={item.category}
-                    description={item.description}
-                    image={item.image}
-                  />
-                </Link>
-              );
-            })}
-          </div>
+        <ItemsListMain category={category} products={products} />
+        <div className="cards">
+          {products.map((product) => {
+            return (
+              <div key={product.id.integerValue}>
+                <CardItem
+                  id={product.id.integerValue}
+                  name={product.name.stringValue}
+                  price={product.price.doubleValue || product.price.integerValue }
+                  category={product.category.stringValue}
+                  image={product.image.stringValue}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

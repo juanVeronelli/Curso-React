@@ -10,88 +10,121 @@
     box-sizing: inherit;
 }
 
-#root{
-    height: 120vh;
+.cardDetail-container {
+    /* background-color: #ededed6a; */
+    width: 100%;
+    padding-top: 0.01em ;
+    height: 87.7vh;
+    .cardDetail-grid{
+        margin-top: 3rem;
+        display: grid;
+        column-gap: 100px;
+        justify-content: center;
+        grid-template-columns: 0.2fr 0.5fr;
+    }
 }
 
-.card-detail{
-    width: 80%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
+.cardDetail-grid > .detail-image > img {
+    width: auto;
+    height: 750px;
+    object-fit: contain;
 }
 
-.card-detail > .detail-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100% ;
-}
-
-.card-detail > .detail-img > img{
-    width: 70%;
-    object-fit: cover;
-}
-
-.card-detail > .detail-info{
-    align-items: center;
-    width: 80%;
-    height: 100%;
-}
-
-.card-detail > .detail-info > span {
-    font-size: 16px;
+.cardDetail-grid > .detail-info > .info-category {
+    text-transform: uppercase;
     color: gray;
     font-family: 'Poppins', sans-serif;
 }
 
-.card-detail > .detail-info > h3 {
-    padding: 10px 0px 0px 0px;
-    font-size: 26px;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-}
-
-.card-detail > .detail-info > hr {
-    margin: 30px 0px;
-    border-top: 0.05px solid rgba(128, 128, 128, 0.5);
-}
-
-.card-detail > .detail-info > #description {
+.cardDetail-grid > .detail-info > h2 {
     font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: .0em;
 }
 
-.card-detail > .detail-info > .shipment{
-    display:  flex;
-    width: 60%;
-    justify-content: space-between;
+.cardDetail-grid > .detail-info > .info-price {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
 }
 
-.card-detail > .detail-info > .sizes {
-}
-
-.card-detail > .detail-info > .sizes > h4 {
+.cardDetail-grid > .detail-info > .info-payment {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    margin-top: 2em;
 }
 
-.card-detail > .detail-info > .sizes > ul{
-    justify-content: start;
+.cardDetail-grid > .detail-info > .info-star {
+    font-family: 'Poppins', sans-serif;
+    margin-top: .1em;
+    margin-bottom: 2.5em;
+}
+
+.cardDetail-grid > .detail-info > hr {
     width: 100%;
+    padding: .003rem;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.426);
 }
 
-.card-detail > .detail-info > .sizes > ul > li {
-    margin-right: 35px;
-    border: 1px solid black;
-    padding: 15px 20px;
+.cardDetail-grid > .detail-info > .info-delivery {
+    width: 100%;
+    height: 100px;
+    place-items: center;
+    display: flex;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    .icon{
+        fill: rgb(37, 75, 37);
+    }
 }
 
-.card-detail > .detail-info > button {
+.cardDetail-grid > .detail-info > .info-size {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cardDetail-grid > .detail-info > .sizeList{
+    display: flex;
     width: 60%;
-    margin-top: 2.5rem;
-    padding: 10px 20px;
-    border: 3px solid black;
+    margin: auto;
 }
+
+.cardDetail-grid > .detail-info > .sizeList > li {
+    border: 1px solid black;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    width: 50px;
+    height: 50px;
+}
+
+.cardDetail-grid > .detail-info > .sizeList > .active {
+    background-color: rgb(31, 31, 31);
+    color: #fff;
+}
+
+.cardDetail-grid > .detail-info > button > .detail-box {
+    width: 650px;
+    margin-top: 2em;
+    height: 60px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    place-content: center;
+    place-items: center;
+    display: flex;
+    background-color: rgb(31, 31, 31);
+    &:hover{
+        background-color: rgb(64, 64, 64);
+    }
+}
+  
+  
