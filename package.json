@@ -1,7 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
-  "homepage": "http://juanveronelli.github.io/curso-react",
+  "homepage": "http://juanveronelli.github.io/Curso-react",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
