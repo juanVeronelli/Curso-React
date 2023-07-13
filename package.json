@@ -1,9 +1,12 @@
 {
   "name": "vite-project",
   "private": true,
+  "homepage": "http://juanVeronelli.github.io/curso-react",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run buil",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -16,6 +19,7 @@
     "@mui/material": "^5.13.5",
     "axios": "^1.4.0",
     "firebase": "^10.0.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
