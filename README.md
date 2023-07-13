@@ -9,7 +9,7 @@ para los filtros use un hook useLocation ya que me permitia pasarle querys que n
 
 en el formulario de la compra incluí inputs para el nombre, email y ciudad agregando una logica para detectar si el carrito esta vacio o si no se ingresaron todos los datos 
 
-ademas la logica de los talles para los elementos lo agregue directamente a la base de datos y no cree la logica en el codigo debido a que me parecio mucho mas eficiente agregar los talles directamente a los productos y no asignarlos aleatoriamente, de igual forma para agregar los talles tuve que crear un script que añadiera los talles, comparto el codigo que utilice para ello:
+ademas la logica de los talles para los elementos lo agregue directamente a la base de datos y no cree la logica en el codigo debido a que me parecio mucho mas eficiente agregar los talles directamente a los productos y no asignarlos aleatoriamente, de igual forma para agregar los talles tuve que crear un script que añadiera los mismos, comparto el codigo que utilice para ello:
 
 ```javascript
 onst admin = require('firebase-admin');
@@ -17,7 +17,7 @@ const serviceAccount = require('./e-commerce-34350-firebase-adminsdk-et9ok-09a7a
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://e-commerce-34350.firestore.com' // url proyecto de firebase 
+  databaseURL: 'https://e-commerce-34350.firestore.com' 
 });
 
 const firestore = admin.firestore();
@@ -30,18 +30,18 @@ collectionRef
     const updates = [];
     
     snapshot.forEach((doc) => {
-      // Genera los números aleatorios entre 0 y 10
+      // Genero los números aleatorios entre 0 y 10
       const s = Math.floor(Math.random() * 11);
       const m = Math.floor(Math.random() * 11);
       const l = Math.floor(Math.random() * 11);
       const xl = Math.floor(Math.random() * 11);
       const xxl = Math.floor(Math.random() * 11);
 
-      // Actualiza el documento con el campo adicional de tipo mapa
+      // Actualizo el documento con el campo adicional de tipo mapa
       updates.push(doc.ref.update({ tallas: { S: s, M: m, L: l, XL: xl, XXL: xxl } }));
     });
 
-    // Ejecuta todas las actualizaciones en paralelo
+    // Ejecuto todas las actualizaciones en paralelo
     return Promise.all(updates);
   })
   .then(() => {
