@@ -9,7 +9,7 @@ para los filtros use un hook useLocation ya que me permitia pasarle querys que n
 
 en el formulario de la compra incluí inputs para el nombre, email y ciudad agregando una logica para detectar si el carrito esta vacio o si no se ingresaron todos los datos 
 
-ademas la logica de los talles para los elementos lo agregue directamente a la base de datos y no cree la logica en el codigo debido a que me parecio mucho mas eficiente agregar los talles directamente a los productos y no asignarlos aleatoriamente, de igual forma para agregar los talles tuve que crear un script que añadiera los talles, comparto el codigo que utilice para ello:
+ademas la logica de los talles para los elementos lo agregue directamente a la base de datos y no cree la logica en el codigo debido a que me parecio mucho mas eficiente agregar los talles directamente a los productos y no asignarlos aleatoriamente, de igual forma para agregar los talles tuve que crear un script que añadiera los mismos, comparto el codigo que utilice para ello:
 
 ```javascript
 onst admin = require('firebase-admin');
