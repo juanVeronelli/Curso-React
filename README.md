@@ -1,15 +1,15 @@
-# E-commerce con CoderHouse
+# E-commerce
 
-# resumen
-Esta app es un e-commerce de ropa, que cuenta con 3 categorias, hombre, mujer y joyeria. Cada una tiene sus respectivos productos y sus filtros exepto jewlery que no conteine filtrado debido a su poca variacion de elementos, la base de datos utilizada fue firebase de google para hacer las peticiones y cargar las ordenes de los productos.
+# summary
+This app is an e-commerce clothing store, which has 3 categories: men, women and jewelry. Each one has its respective products and filters, except for jewelry, which does not contain filters due to its low variation in elements. The database used was Google's Firebase to make requests and load product orders.
 
-utilize Link, BrowseRouter, Routes, Route y cree un archivo mas que es routes.jsx para redireccionar todos los links de mi aplicacion
+I used Link, BrowseRouter, Routes, Route and created one more file called routes.jsx to redirect all the links in my application
 
-para los filtros use un hook useLocation ya que me permitia pasarle querys que no sean parametros a traves de las url y otro hook importante fue el useContext para la logica del carrtio
+For the filters I used a hook called useLocation since it allowed me to pass queries that are not parameters through the URL and another important hook was the useContext for the cart logic
 
-en el formulario de la compra incluí inputs para el nombre, email y ciudad agregando una logica para detectar si el carrito esta vacio o si no se ingresaron todos los datos 
+In the purchase form I included inputs for the name, email and city adding a logic to detect if the cart is empty or if not all the data was entered
 
-ademas la logica de los talles para los elementos lo agregue directamente a la base de datos y no cree la logica en el codigo debido a que me parecio mucho mas eficiente agregar los talles directamente a los productos y no asignarlos aleatoriamente, de igual forma para agregar los talles tuve que crear un script que añadiera los mismos, comparto el codigo que utilice para ello:
+Also, I added the logic of the sizes for the elements directly to the database and I did not create the logic in the code because it seemed much more efficient to add the sizes directly to the products and not assign them randomly, in the same way to add the sizes I had to create a script that added them, I share the code I used for it:
 
 ```javascript
 onst admin = require('firebase-admin');
